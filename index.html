@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Exo+2"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="top">
+        <div class="chart container">
+          <div class="title">Summary of expenses</div>
+          <canvas id="type-expenses-chart" role="img"></canvas>
+        </div>
+        <div class="budget container">
+          <div class="budget__values">
+            <div class="title">
+              Budget in
+              <select class="date-month">
+                <option value="01">Jan</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+                <option value="04">Apr</option>
+                <option value="05">May</option>
+                <option value="06">Jun</option>
+                <option value="07">Jul</option>
+                <option value="08">Aug</option>
+                <option value="09">Sep</option>
+                <option value="10">Oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+              </select>
+              <select class="date-year">
+                <option value="2016">2014</option>
+                <option value="2016">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+              </select>
+            </div>
+
+            <div class="budget__total">+ 18 400.00</div>
+            <div class="budget__income">
+              <div class="budget__income__text">Income</div>
+              <div class="budget__income__value">+ 20 700.00</div>
+              <div class="budget__income__percentage">&nbsp;</div>
+            </div>
+            <div class="budget__expenses">
+              <div class="budget__expenses__text">Expenses</div>
+              <div class="budget__expenses__value">- 6 700.00</div>
+              <div class="budget__expenses__percentage">32%</div>
+            </div>
+          </div>
+          <div class="budget__charts-statistic">
+            <div class="title ">
+              Statistics for <span id="month-label">Dec</span>/<span
+                id="year-label"
+                >2018</span
+              >
+              <div class="charts">
+                <i class="fas fa-chart-bar" id="bar-chart-btn"></i>
+                <i class="fas fa-chart-area" id="line-chart-btn"></i>
+              </div>
+            </div>
+            <canvas id="stats-chart" role="img"></canvas>
+          </div>
+        </div>
+        <div class="auth container">
+          <div class="auth__logout">
+            <button class="logout-btn">Logout</button>
+          </div>
+          <div class="auth__login-form">
+            <input type="email" class="email" placeholder="Email" />
+            <input type="password" class="password" placeholder="Password" />
+            <button class="login-btn">Sign In</button>
+            <p class="link">
+              <a href="#" class="get-register-form">Or register</a>
+            </p>
+          </div>
+          <div class="auth__register-form">
+            <input type="email" class="register-email" placeholder="Email" />
+            <input
+              type="password"
+              class="register-password"
+              placeholder="Password"
+            />
+            <input
+              type="password"
+              class="register-password2"
+              placeholder="Password again"
+            />
+            <button class="register-btn">Sign Up</button>
+            <p class="link"><a href="#" class="get-signin-form">Or login</a></p>
+          </div>
+        </div>
+
+        <div class="add-item container">
+          <select class="add-item__type">
+            <option value="incomes" selected>Income</option>
+            <option value="expenses">Expense</option>
+          </select>
+          <input
+            type="text"
+            class="add-item__description"
+            placeholder="Add description"
+          />
+          <input type="number" class="add-item__value" placeholder="Value" />
+          <select class="add-item__expense-type">
+            <option value="0" selected>Other</option>
+            <option value="1">Housing</option>
+            <option value="2">Food and Groceries</option>
+            <option value="3">Consumer Debt</option>
+            <option value="4">Health Care</option>
+            <option value="5">Personal Care</option>
+            <option value="6">Entertainment</option>
+          </select>
+          <input class="add-item__date" />
+          <button class="add-item__btn btn-outline"><i class="far fa-check-circle"></i></button>
+        </div>
+      </section>
+      <section class="bottom">
+        <div class="incomes container">
+          <h2 class="incomes__title">Incomes</h2>
+          <input type="text" class="value-size min" placeholder="Min" />-&nbsp;
+          <input type="text" class="value-size max" placeholder="Max" />
+          <select class="order">
+            <option value="" style="display: none">Order</option>
+            <option value="value">Value &#8593;</option>
+            <option value="-value">Value &#8595;</option>
+            <option value="desc">A - Z</option>
+            <option value="-desc">Z - A</option>
+          </select>
+          <i class="far fa-arrow-alt-circle-right filter-btn btn-outline"></i>
+          <i class="far fa-times-circle filter-reset-btn btn-outline"></i>
+          <div class="incomes__list">
+            <div class="item">
+              <div class="item__description">Premium</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;(12/07/2018)
+              </div>
+              <div class="item__value">+ 5 700.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+            <div class="item">
+              <div class="item__description">Salary</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;(12/02/2018)
+              </div>
+              <div class="item__value">+ 15 000.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="expenses container">
+          <h2 class="expenses__title">Expenses</h2>
+          <input type="text" class="value-size min" placeholder="Min" />-&nbsp;
+          <input type="text" class="value-size max" placeholder="Max" />
+          <select class="order">
+            <option value="" style="display:none">Order</option>
+            <option value="value">Value &#8593;</option>
+            <option value="-value">Value &#8595;</option>
+            <option value="desc">A - Z</option>
+            <option value="-desc">Z - A</option>
+          </select>
+          <i class="far fa-arrow-alt-circle-right filter-btn btn-outline"></i>
+          <i class="far fa-times-circle filter-reset-btn btn-outline"></i>
+          <div class="expenses__list">
+            <div class="item clearfix">
+              <div class="item__description">New Laptop</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;Other (12/09/2018)
+              </div>
+              <div class="item__value">- 2 000.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+            <div class="item">
+              <div class="item__description">Movies</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;Entertainment (12/07/2018)
+              </div>
+              <div class="item__value">- 300.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+            <div class="item">
+              <div class="item__description">Restaurant</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;Food and Groceries (12/07/2018)
+              </div>
+              <div class="item__value">- 900.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+            <div class="item">
+              <div class="item__description">Rent</div>
+              <div class="item__addition-description">
+                &nbsp;&nbsp;Housing (12/04/2018)
+              </div>
+              <div class="item__value">- 3 500.00</div>
+              <i class="far fa-trash-alt item__delete-btn"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="/dist/main.js"></script>
+  </body>
+</html>
